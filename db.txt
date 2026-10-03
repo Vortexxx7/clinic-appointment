@@ -1,0 +1,67 @@
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS doctors (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS patients (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    birth_year INTEGER NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    CONSTRAINT patients_phone_unique UNIQUE (phone)
+);
+
+CREATE TABLE IF NOT EXISTS schedule_slots (
+    id SERIAL PRIMARY KEY,
+    doctor_id INTEGER NOT NULL,
+    slot_date DATE NOT NULL,
+    start_time TIME WITHOUT TIME ZONE NOT NULL,
+    CONSTRAINT schedule_slots_doctor_fk
+        FOREIGN KEY (doctor_id)
+        REFERENCES doctors(id)
+        ON DELETE CASCADE,
+    CONSTRAINT schedule_slots_doctor_datetime_unique
+        UNIQUE (doctor_id, slot_date, start_time)
+);
+
+CREATE TABLE IF NOT EXISTS appointments (
+    id SERIAL PRIMARY KEY,
+    patient_id INTEGER NOT NULL,
+    doctor_id INTEGER NOT NULL,
+    slot_id INTEGER NOT NULL,
+    problem_description TEXT NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'wait',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT appointments_patient_fk
+        FOREIGN KEY (patient_id)
+        REFERENCES patients(id)
+        ON DELETE CASCADE,
+    CONSTRAINT appointments_doctor_fk
+        FOREIGN KEY (doctor_id)
+        REFERENCES doctors(id)
+        ON DELETE CASCADE,
+    CONSTRAINT appointments_slot_fk
+        FOREIGN KEY (slot_id)
+        REFERENCES schedule_slots(id)
+        ON DELETE CASCADE,
+    CONSTRAINT appointments_slot_unique UNIQUE (slot_id),
+    CONSTRAINT appointments_status_check
+        CHECK (status IN ('wait', 'confirmed'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_schedule_slots_doctor_date_time
+    ON schedule_slots (doctor_id, slot_date, start_time);
+
+CREATE INDEX IF NOT EXISTS idx_appointments_patient_id
+    ON appointments (patient_id);
+
+CREATE INDEX IF NOT EXISTS idx_appointments_doctor_id
+    ON appointments (doctor_id);
+
+CREATE INDEX IF NOT EXISTS idx_appointments_status
+    ON appointments (status);
+
+COMMIT;

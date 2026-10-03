@@ -1,0 +1,161 @@
+body {
+  font-family: "Comfortaa", cursive;
+  margin: 0; /* убираем стандартный отступ браузера */
+  background: linear-gradient(to right, rgb(189, 235, 255), rgb(227, 248, 255));
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(240, 251, 255);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  user-select: none;
+  height: 110px;
+}
+
+.logo-text {
+  user-select: none;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.button-panel {
+  display: flex;
+  gap: 35px;
+  cursor: pointer;
+  padding-left: 440px;
+}
+.button-panel button {
+  font-family: "Comfortaa", cursive;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent; /* Прозрачная линия по умолчанию */
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease; /* Плавный переход */
+}
+
+.button-panel button:hover {
+  border-bottom: 2px solid rgb(1, 140, 255); /* Цвет полоски как у активной кнопки */
+}
+
+.login-button {
+  position: absolute;
+  right: 25px;
+  height: 55px;
+  width: 125px;
+  display: flex; /* текст и картинка в ряд */
+  gap: 4px; /* расстояние между текстом и картинкой */
+  align-items: center; /* по центру по высоте */
+  background: linear-gradient(to right, #4facfe, #007bff);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-button button {
+  user-select: none;
+  font-family: "Comfortaa", cursive;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.login-button img {
+  padding-left: 10px;
+  height: 28px;
+  user-select: none;
+}
+
+.nav button {
+  padding: 10px;
+  color: black;
+}
+
+.nav button.active {
+  color: rgb(1, 140, 255);
+  border-bottom: 2px solid rgb(1, 140, 255);
+  font-weight: bold;
+}
+
+/*всплывающее окно */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.modal-content {
+  background-color: aliceblue;
+  padding: 30px;
+  width: 40%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-top: rgb(1, 140, 255) solid 70px;
+  position: relative;
+  cursor: default;
+}
+
+.modal-title {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+.auth-form input {
+  font-family: "Comfortaa", cursive;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.auth-form .submit-btn {
+  background: linear-gradient(to right, #4facfe, #007bff);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.auth-form .submit-btn:hover {
+  background-color: #365a8d; /* Темнеет при наведении */
+}

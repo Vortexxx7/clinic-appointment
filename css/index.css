@@ -1,0 +1,84 @@
+.text h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+.text1 {
+  position: absolute;
+  font-size: 42pt;
+  left: 720px;
+  font-weight: 600;
+  bottom: 550px;
+}
+
+.text2 {
+  position: absolute;
+  font-size: 30pt;
+  left: 720px;
+  bottom: 465px;
+}
+
+.woman img {
+  user-select: none;
+  position: absolute;
+  height: 500px;
+  left: 85px;
+  bottom: 230px;
+}
+
+.wooman-back img {
+  user-select: none;
+  position: absolute;
+  height: 900px;
+  left: 30px;
+  bottom: 40px;
+}
+
+.Mbutton button {
+  position: absolute;
+  bottom: 320px;
+  left: 720px;
+  color: white;
+  background: linear-gradient(to right, #4facfe, #007bff);
+  cursor: pointer;
+  font-size: 30px;
+  border-radius: 14px;
+  border: none;
+  width: 360px;
+  height: 80px;
+  user-select: none;
+}
+
+.rectangles {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* крайние по краям */
+  padding: 0 100px;
+  box-sizing: border-box;
+}
+
+.rectangle {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  height: 200px;
+  width: 450px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.rectangle img {
+  user-select: none;
+  padding-left: 15px;
+  padding-top: 15px;
+  height: 100px;
+  margin-bottom: 15px;
+}

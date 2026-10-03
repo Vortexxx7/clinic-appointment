@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/protected/admin.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="/img/logo.png" alt="logo" />
+        <span class="logo-text">Админ-панель</span>
+      </div>
+      <button class="logout-btn" onclick="location.href = '/logout'">Выйти</button>
+    </header>
+
+    <div class="container">
+      
+    
+      <div class="block" id="block-doctors">
+        <h2>Создать Врача</h2>
+        <div class="row">
+          <input type="text" id="input-doctor-name" placeholder="ФИО (специальность)" />
+        </div>
+        <button id="btn-add-doctor">Добавить врача</button>
+        <table>
+          <thead><tr><th>ФИО (специальность)</th><th></th></tr></thead>
+          <tbody id="tbody-doctors"></tbody>
+        </table>
+      </div>
+
+      <div class="block" id="block-schedule">
+        <h2>Расписание</h2>
+        <div class="row">
+          <select id="select-slot-doctor"><option value="" disabled selected>Выбрать врача</option></select>
+          <input type="date" id="input-slot-date" />
+          <input type="time" id="input-slot-time" />
+        </div>
+        <button id="btn-add-slot">Добавить слот</button>
+        <table>
+          <thead><tr><th>Врач</th><th>Дата</th><th>Время</th><th></th></tr></thead>
+          <tbody id="tbody-slots"></tbody>
+        </table>
+      </div>
+
+
+      <div class="block" id="block-appointments">
+        <h2>Записи пациентов</h2>
+        <table>
+          <thead>
+            <tr><th>Пациент</th><th>Врач</th><th>Дата</th><th>Время</th><th>Статус</th><th>Действие</th></tr>
+          </thead>
+          <tbody id="tbody-appointments"></tbody>
+        </table>
+      </div>
+
+
+      <div class="block" id="block-manage">
+        <h2>Управление записью</h2>
+        <div class="row">
+          <select id="select-manage-appointment"><option value="" disabled selected>Выбрать запись</option></select>
+          <select id="select-new-status">
+            <option value="confirmed">Подтвердить</option>
+            <option value="cancelled">Отменить</option>
+          </select>
+        </div>
+        <button id="btn-apply-status">Применить</button>
+      </div>
+
+
+      <div class="block" id="block-results">
+        <h2>Результаты приёма</h2>
+        <select id="select-result-appointment"><option value="" disabled selected>Выбрать запись</option></select>
+        <input type="text" id="input-diagnosis" placeholder="Диагноз" />
+        <input type="text" id="input-analyses" placeholder="Анализы" />
+        <textarea id="textarea-prescription" placeholder="Назначения"></textarea>
+        <button id="btn-send-result">Отправить пациенту</button>
+      </div>
+
+    </div>
+
+
+    <div id="modal-description" class="modal">
+      <div class="modal-content">
+        <div class="modal-title" onclick="closeModal()" style="cursor:pointer;">
+          Данные записи
+          <span style="float:right;">&times;</span>
+        </div>
+        <div id="modal-body" style="font-size:14px;line-height:1.8;">
+          <p><strong>Пациент:</strong> <span id="modal-patient-info"></span></p>
+          <p><strong>Описание проблемы:</strong></p>
+          <p id="modal-problem" style="background:#f5f5f5;padding:10px;border-radius:6px;margin:5px 0;"></p>
+          <p><strong>Контактные данные:</strong></p>
+          <p>Телефон: <span id="modal-phone"></span></p>
+          <p>Email: <span id="modal-email"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

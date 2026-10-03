@@ -1,0 +1,72 @@
+<!doctype html>
+<html language="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="запись на прием" />
+    <meta name="description" content="Форма записи на прием" />
+    <link rel="icon" href="./img/logo.png" type="image/png" />
+    <title>Запись на прием — Клиника "Здоровье"</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/appointment.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="./img/logo.png" alt="logo" draggable="false" />
+        <span class="logo-text">Клиника "Здоровье"</span>
+      </div>
+      <nav class="nav">
+        <div class="button-panel">
+          <button onclick="location.href = 'index.html'">Главная</button>
+          <button onclick="location.href = 'appointment.html'" class="active">Записаться</button>
+          <button onclick="location.href = 'contacts.html'">Контакты</button>
+          <button onclick="location.href = 'about.html'">О нас</button>
+        </div>
+      </nav>
+      <div class="login-button" id="logIn">
+        <img src="./img/sign-in.png" alt="Войти" draggable="false" />
+        <button>Войти</button>
+
+        <!--Кнопка входа-->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-title">Вход администратора</div>
+            <!-- Форма входа -->
+            <form id="formLogin" class="auth-form">
+              <input type="text" placeholder="Логин" required />
+              <input type="password" placeholder="Пароль" required />
+              <button type="submit" class="submit-btn">Войти</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="appointment-page">
+      <div class="appointment-box">
+        <h1>Запись на прием</h1>
+
+        <form class="appointment-form">
+          <select id="doctorSelect">
+            <option value="" disabled selected>Выберите врача</option>
+          </select>
+
+          <select id="slotSelect">
+            <option value="" disabled selected>Сначала выберите врача</option>
+          </select>
+
+          <input type="text" id="fio" placeholder="ФИО" />
+          <input type="number" id="birthYear" placeholder="Год рождения" min="1900" max="2026" />
+          <input type="tel" maxlength="12" id="phone" value="+7" placeholder="+7XXXXXXXXXX" />
+          <input type="email" id="email" placeholder="Email" />
+          <textarea id="problem" placeholder="Описание проблемы"></textarea>
+
+          <button type="button" id="submitBtn">Записаться</button>
+        </form>
+      </div>
+    </main>
+    <script src="./js/appointment.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

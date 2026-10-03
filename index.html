@@ -1,0 +1,103 @@
+<!doctype html>
+
+<html language="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="клиника" />
+    <meta name="description" content="0" />
+    <link rel="icon" href="./img/logo.png" type="image/png" />
+    <title>Клиника "Здороьве"</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="./img/logo.png" alt="logo" draggable="false" />
+        <span class="logo-text">Клиника "Здоровье" </span>
+      </div>
+      <span class="nav">
+        <span class="button-panel">
+          <button onclick="location.href = 'index.html'" class="active">
+            Главная
+          </button>
+          <button onclick="location.href = 'appointment.html'">
+            Записаться
+          </button>
+          <button onclick="location.href = 'contacts.html'">Контакты</button>
+          <button onclick="location.href = 'about.html'">О нас</button>
+        </span>
+      </span>
+
+      <div class="login-button" id="logIn">
+        <img src="./img/sign-in.png" alt="Войти" draggable="false" />
+        <button>Войти</button>
+
+        <!--Кнопка входа-->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-title">Вход администратора</div>
+            <!-- Форма входа -->
+            <form id="formLogin" class="auth-form">
+              <input type="text" placeholder="Логин" required />
+              <input type="password" placeholder="Пароль" required />
+              <button type="submit" class="submit-btn">Войти</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wooman-back">
+      <img src="./img/medicBack.png" alt="Фон с медиком" draggable="false" />
+    </div>
+
+    <div class="woman">
+      <img src="./img/medic.png" alt="Медик" draggable="false" />
+    </div>
+    <div class="rectangles">
+      <div class="rectangle">
+        <img src="./img/img1.png" alt="Иконка поиска врача" draggable="false" />
+        <div class="text">
+          <h1>Поиск врача</h1>
+          <p>Найдите нужного специалиста быстро и удобно</p>
+        </div>
+      </div>
+
+      <div class="rectangle">
+        <img
+          src="./img/img2.png"
+          alt="Иконка выбора времени"
+          draggable="false"
+        />
+        <div class="text">
+          <h1>Выбор времени</h1>
+          <p>Запишитесь на приём в удобное для вас время</p>
+        </div>
+      </div>
+
+      <div class="rectangle">
+        <img
+          src="./img/img3.png"
+          alt="Иконка заполнения формы"
+          draggable="false"
+        />
+        <div class="text">
+          <h1>Заполнение формы</h1>
+          <p>Быстро заполните форму и подтвердите запись</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="Mbutton">
+      <button onclick="location.href = 'appointment.html'">
+        Записаться на приём
+      </button>
+    </div>
+    <div class="text1">Добро пожаловать в нашу клинику!</div>
+    <div class="text2">Мы заботимся о вашем здоровье</div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
